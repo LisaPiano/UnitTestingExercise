@@ -37,13 +37,25 @@ namespace UnitTestingExercise
         // Step 6: 
         // Create a Multiply method that passes 2 integers
 
+        public int Multiply(int num1, int num2)
+        {
+            return (num1 * num2);
+        }
 
         // Step 7: Navigate to the UnitTests.cs file and complete the MultiplyTest unit test method 
 
 
         // Step 8: 
         // Create a Divide method that passes 2 integers
-
+        public double Divide(double num1, double num2)
+        {
+            if (num2 == 0) 
+            {
+                Console.WriteLine("DEATH comes to those who try to subtract by 0!");
+                return 0;
+            }
+            return ((num1/num2));
+        }
         // Step 9: Navigate to the UnitTests.cs file and complete the DivideTest unit test method 
 
 

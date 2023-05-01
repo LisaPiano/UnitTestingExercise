@@ -7,7 +7,7 @@ namespace UnitTestingExercise.Tests
     {
         [Theory]
         [InlineData(2, 3, 5, 10)] //Add test data <-------
-        [InlineData(0, 1, 8964600000, 8964600001)]
+        [InlineData(0, 1, 896460, 896461)]
         [InlineData(0, 0, 0, 0)]
         [InlineData(-1, -22, -5, -28)]
         public void AddTest(int num1, int num2, int num3, int expected)
@@ -37,7 +37,7 @@ namespace UnitTestingExercise.Tests
         [InlineData(0, 55, -55)]
         [InlineData(1000, 999, 1)]
         [InlineData(-99, -1, -98)]
-        [InlineData(3, -10, -7)]
+        [InlineData(3, -10, 13)]
         [InlineData(-3, 10, -13)]
         public void SubtractTest(int minuend, int subtrhend, int expected)
         {
@@ -56,29 +56,42 @@ namespace UnitTestingExercise.Tests
         }
 
         [Theory]
-        [InlineData()]//Add test data <-------
+        [InlineData(6, 2, 12)]//Add test data <-------
+        [InlineData(8, 0, 0)]
+        [InlineData(1000, 2, 2000)]
+        [InlineData(1, 2, 2)]
         public void MultiplyTest(int num1, int num2, int expected)
         {
             //Start Step 7 here:
 
             //Arrange
 
+            var multiplyTest = new Calculator();
             //Act
 
-            //Assert
+           var actual = multiplyTest.Multiply(num1, num2);
 
+            //Assert
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
-        [InlineData()]//Add test data <-------
-        public void DivideTest(int num1, int num2, int expected)
+        [InlineData(0, 2, 0)]//Add test data <-------
+        [InlineData(6, 2, 3)]//Add test data <-------
+        [InlineData(8, 0, 0)]
+        [InlineData(1000, 2, 500)]
+        [InlineData(1, 2, .5)]
+        public void DivideTest(int num1, int num2, double expected)
         {
             //Arrange
 
+            var divideTest = new Calculator();
+
             //Act
+            var actual = divideTest.Divide(num1, num2);
 
             //Assert
-
+            Assert.Equal(expected, actual);
         }
 
     }
